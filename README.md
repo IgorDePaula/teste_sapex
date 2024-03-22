@@ -1,7 +1,7 @@
 Teste Sapex
 ==========
 
-Teste PHP Sênior para a empresa Sapex
+Teste PHP para a empresa Sapex
 
 Requisitos:
 
