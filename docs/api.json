@@ -1,0 +1,209 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "API Sapex",
+        "description": "API Sapex",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000"
+        }
+    ],
+    "paths": {
+        "/api/phonebook": {
+            "get": {
+                "description": "List phonebooks",
+                "responses": {
+                    "200": {
+                        "description": "List all phonebook",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListPhonebooks"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create a Phonebook",
+                "responses": {
+                    "201": {
+                        "description": "Created response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreatedPhonebook"
+                                }
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "description": "Create a single phonebook",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreatePhonebook"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/phonebook/{phonebook}": {
+            "put": {
+                "description": "Update a Phonebook",
+                "responses": {
+                    "201": {
+                        "description": "Updated response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreatedPhonebook"
+                                }
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "description": "Deletea single phonebook",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreatePhonebook"
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "description": "Update a single phonebook",
+                    "name": "phonebook",
+                    "in": "path"
+                }
+            ],
+            "delete": {
+                "description": "Delete a Phonebook",
+                "responses": {
+                    "202": {
+                        "description": "Delete response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreatedPhonebook"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "description": "Create a single phonebook",
+                    "name": "phonebook",
+                    "in": "path"
+                }
+            ]
+        }
+    },
+    "components": {
+        "schemas": {
+            "Phonebook": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Phonebook ID"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Phonebook name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "Phonebook email"
+                    },
+                    "birthday": {
+                        "type": "string",
+                        "description": "Phonebook birthday"
+                    },
+                    "cpf": {
+                        "type": "string",
+                        "description": "Phonebook cpf"
+                    },
+                    "telephone": {
+                        "type": "string",
+                        "description": "Phonebook telephone"
+                    }
+                }
+            },
+            "ListPhonebooks": {
+                "$ref": "#/components/schemas/Phonebook"
+            },
+            "CreatedPhonebook": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Phonebook ID"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Phonebook name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "Phonebook email"
+                    },
+                    "birthday": {
+                        "type": "string",
+                        "description": "Phonebook birthday"
+                    },
+                    "cpf": {
+                        "type": "string",
+                        "description": "Phonebook cpf"
+                    },
+                    "telephone": {
+                        "type": "string",
+                        "description": "Phonebook telephone"
+                    }
+                }
+            },
+            "CreatePhonebook": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "email",
+                    "birthday",
+                    "cpf",
+                    "telephone"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Phonebook name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "Phonebook email"
+                    },
+                    "birthday": {
+                        "type": "string",
+                        "description": "Phonebook birthday"
+                    },
+                    "cpf": {
+                        "type": "string",
+                        "description": "Phonebook cpf"
+                    },
+                    "telephone": {
+                        "type": "string",
+                        "description": "Phonebook telephone"
+                    }
+                }
+            }
+        }
+    }
+}
