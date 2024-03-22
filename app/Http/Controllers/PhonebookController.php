@@ -37,7 +37,7 @@ class PhonebookController extends Controller
      */
     public function update(UpdatePhonebookRequest $request, Phonebook $phonebook)
     {
-        return new JsonResponse($phonebook->update($request->all()), JsonResponse::HTTP_OK);
+        return new JsonResponse($phonebook->update($request->all()), JsonResponse::HTTP_CREATED);
     }
 
     /**
@@ -45,6 +45,6 @@ class PhonebookController extends Controller
      */
     public function destroy(Phonebook $phonebook)
     {
-        //
+        return new JsonResponse($phonebook->delete(), JsonResponse::HTTP_ACCEPTED);
     }
 }

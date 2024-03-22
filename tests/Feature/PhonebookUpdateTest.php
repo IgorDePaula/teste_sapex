@@ -5,5 +5,12 @@ it('has phonebookupdate page', function () {
     $phone['name'] = 'John Carpenter';
     $response = $this->put("/api/phonebook/{$phone['id']}", $phone);
 
-    $response->assertStatus(200);
+    $response->assertStatus(201);
+});
+
+it('has phonebookupdate page fails', function () {
+    $phone['name'] = 'John Carpenter';
+    $response = $this->put("/api/phonebook/3", $phone);
+
+    $response->assertStatus(404);
 });
