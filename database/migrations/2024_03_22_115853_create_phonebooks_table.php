@@ -12,6 +12,10 @@ return new class extends Migration {
     {
         Schema::create('phonebooks', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->date('birthday');
+            $table->string('cpf');
+            $table->string('telephone');
             $table->timestamps();
         });
     }
