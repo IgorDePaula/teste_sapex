@@ -32,29 +32,12 @@ class PhonebookController extends Controller
     {
         return new JsonResponse(Phonebook::create($request->all()), JsonResponse::HTTP_CREATED);
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Phonebook $phonebook)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Phonebook $phonebook)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      */
     public function update(UpdatePhonebookRequest $request, Phonebook $phonebook)
     {
-        //
+        return new JsonResponse($phonebook->update($request->all()), JsonResponse::HTTP_OK);
     }
 
     /**

@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/phonebook', [PhonebookController::class, 'index']);
 Route::post('/phonebook', [PhonebookController::class, 'store']);
+Route::put('/phonebook/{phonebook}', [PhonebookController::class, 'update']);
