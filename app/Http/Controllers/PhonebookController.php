@@ -13,7 +13,7 @@ class PhonebookController extends Controller
      */
     public function index()
     {
-        //
+        return Phonebook::all();
     }
 
     /**
