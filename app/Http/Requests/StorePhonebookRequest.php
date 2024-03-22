@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ValidateCpf;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePhonebookRequest extends FormRequest
@@ -11,7 +12,7 @@ class StorePhonebookRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,11 @@ class StorePhonebookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'birthday' => 'required|date',
+            'telephone' => 'required|min:10',
+            'cpf' => ['required', 'min:11', new ValidateCpf()],
         ];
     }
 }

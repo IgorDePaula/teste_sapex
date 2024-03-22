@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePhonebookRequest;
 use App\Http\Requests\UpdatePhonebookRequest;
 use App\Models\Phonebook;
+use Illuminate\Http\JsonResponse;
 
 class PhonebookController extends Controller
 {
@@ -13,7 +14,7 @@ class PhonebookController extends Controller
      */
     public function index()
     {
-        return Phonebook::all();
+        return new JsonResponse(Phonebook::all());
     }
 
     /**
@@ -29,7 +30,7 @@ class PhonebookController extends Controller
      */
     public function store(StorePhonebookRequest $request)
     {
-        //
+        return new JsonResponse(Phonebook::create($request->all()), JsonResponse::HTTP_CREATED);
     }
 
     /**
